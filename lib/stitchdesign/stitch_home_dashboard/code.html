@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flashcards Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1c252e",
+                        "text-secondary-light": "#64748b",
+                        "text-secondary-dark": "#94a3b8",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col items-center justify-center">
+<!-- Mobile Container Simulation -->
+<div class="relative flex h-full min-h-screen w-full max-w-md flex-col overflow-hidden bg-background-light dark:bg-background-dark shadow-xl">
+<!-- Header -->
+<header class="flex items-center justify-between p-6 pt-12 pb-4">
+<h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Flashcards</h1>
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col px-4 py-2 gap-8 overflow-y-auto">
+<!-- Conditional View: Active State (Has Flashcards) -->
+<!-- This section represents the state when the user has content -->
+<section class="flex flex-col gap-6">
+<!-- Stats Summary -->
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1 rounded-xl bg-surface-light dark:bg-surface-dark p-4 shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-xl">style</span>
+<span class="text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark">Decks</span>
+</div>
+<p class="text-3xl font-bold text-slate-900 dark:text-white">12</p>
+</div>
+<div class="flex flex-col gap-1 rounded-xl bg-surface-light dark:bg-surface-dark p-4 shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-xl">filter_none</span>
+<span class="text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark">Cards</span>
+</div>
+<p class="text-3xl font-bold text-slate-900 dark:text-white">340</p>
+</div>
+</div>
+<!-- Main Actions -->
+<div class="flex flex-col gap-3">
+<button class="group relative flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl bg-primary px-6 py-4 text-white shadow-md shadow-blue-500/20 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined mr-2">play_arrow</span>
+<span class="text-lg font-bold">Study Now</span>
+</button>
+<button class="group relative flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700 bg-surface-light dark:bg-surface-dark px-6 py-4 text-slate-900 dark:text-white transition-all hover:bg-slate-50 dark:hover:bg-slate-800 active:scale-[0.98]">
+<span class="material-symbols-outlined mr-2 text-primary">add_circle</span>
+<span class="text-base font-semibold">Import Flashcards</span>
+</button>
+</div>
+<!-- Recent Activity / Quick Look (Optional context filler) -->
+<div class="flex flex-col gap-3 mt-2">
+<h3 class="text-sm font-semibold uppercase tracking-wider text-text-secondary-light dark:text-text-secondary-dark pl-1">Recent Decks</h3>
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div class="flex flex-col">
+<span class="font-semibold text-slate-900 dark:text-white">Essential Phrasal Verbs</span>
+<span class="text-xs text-text-secondary-light dark:text-text-secondary-dark">50 cards • Last studied 2h ago</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500/10 text-orange-500">
+<span class="material-symbols-outlined">translate</span>
+</div>
+<div class="flex flex-col">
+<span class="font-semibold text-slate-900 dark:text-white">Business English</span>
+<span class="text-xs text-text-secondary-light dark:text-text-secondary-dark">120 cards • New</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Divider for demonstration purposes only -->
+<div class="relative py-8 flex items-center justify-center opacity-50">
+<div class="h-px bg-slate-300 dark:bg-slate-700 w-full"></div>
+<span class="absolute bg-background-light dark:bg-background-dark px-3 text-xs text-text-secondary-light dark:text-text-secondary-dark">DEMO: EMPTY STATE BELOW</span>
+</div>
+<!-- Conditional View: Empty State (No Flashcards) -->
+<!-- This section represents the state when the library is empty -->
+<section class="flex flex-col flex-1 items-center justify-center gap-8 py-10">
+<div class="flex flex-col items-center gap-4 text-center px-6">
+<div class="flex h-24 w-24 items-center justify-center rounded-full bg-surface-light dark:bg-surface-dark border-2 border-dashed border-slate-300 dark:border-slate-700">
+<span class="material-symbols-outlined text-4xl text-slate-400 dark:text-slate-600">library_add</span>
+</div>
+<div class="space-y-2">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">No flashcards found</h2>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark max-w-[260px] mx-auto leading-relaxed">
+                            Your library is currently empty. Import a deck to start your learning journey.
+                        </p>
+</div>
+</div>
+<div class="w-full max-w-xs">
+<button class="group relative flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl bg-primary px-6 py-4 text-white shadow-lg shadow-blue-500/25 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined mr-2">download</span>
+<span class="text-base font-bold">Import Flashcards</span>
+</button>
+<!-- Disabled Study Button for Empty State -->
+<button class="mt-3 flex w-full cursor-not-allowed items-center justify-center rounded-xl px-6 py-3 text-sm font-medium text-slate-400 dark:text-slate-600 opacity-50" disabled="">
+                        Study (Unavailable)
+                    </button>
+</div>
+</section>
+</main>
+<!-- Bottom Tab Navigation (Optional per prompt, but good for structure) -->
+<nav class="border-t border-slate-200 dark:border-slate-800 bg-surface-light dark:bg-surface-dark px-6 py-4 pb-8">
+<div class="flex items-center justify-around">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Browse</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</button>
+</div>
+</nav>
+</div>
+</body></html>

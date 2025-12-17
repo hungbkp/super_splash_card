@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Import Google Sheet - Loading</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#136dec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101822",
+              "neutral-dark": "#1c2027",
+              "border-dark": "#3b4554",
+              "text-gray": "#9da8b9",
+            },
+            fontFamily: {
+              "display": ["Lexend", "sans-serif"],
+              "body": ["Noto Sans", "sans-serif"],
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body>
+<div class="relative flex h-full min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden font-display transition-colors duration-200">
+<!-- TopAppBar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<!-- Back button disabled visually -->
+<button aria-label="Go back" class="text-neutral-500 dark:text-white/50 flex size-12 shrink-0 items-center justify-center cursor-not-allowed opacity-50" disabled="">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_back</span>
+</button>
+<h2 class="text-neutral-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Import Deck</h2>
+</div>
+<!-- Main Content -->
+<div class="flex flex-col flex-1 px-4 py-3">
+<!-- TextField (Disabled State) -->
+<!-- Using opacity-60 to signify the disabled state of the entire form block -->
+<div class="flex w-full flex-wrap items-end gap-4 py-3 opacity-60 select-none pointer-events-none">
+<label class="flex flex-col w-full flex-1">
+<p class="text-neutral-900 dark:text-white text-base font-medium leading-normal pb-2">Google Sheet Link</p>
+<div class="relative w-full">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-neutral-900 dark:text-white border border-neutral-300 dark:border-border-dark bg-white dark:bg-neutral-dark h-14 placeholder:text-neutral-400 dark:placeholder-text-gray p-[15px] text-base font-normal leading-normal" disabled="" readonly="" value="https://docs.google.com/spreadsheets/d/1BxiMvs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit"/>
+<!-- Lock icon to reinforce disabled state -->
+<div class="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-text-gray">
+<span class="material-symbols-outlined" style="font-size: 20px;">lock</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Loading State Area -->
+<!-- Centered in the available space -->
+<div class="flex-1 flex flex-col items-center justify-center gap-8 py-12 min-h-[300px]">
+<!-- Prominent Circular Progress Indicator -->
+<div class="relative flex items-center justify-center">
+<!-- Background circle -->
+<div class="w-20 h-20 rounded-full border-4 border-primary/20"></div>
+<!-- Spinning foreground circle -->
+<div class="absolute w-20 h-20 rounded-full border-4 border-primary border-t-transparent animate-spin"></div>
+<!-- Icon in center -->
+<div class="absolute text-primary animate-pulse">
+<span class="material-symbols-outlined" style="font-size: 32px;">cloud_sync</span>
+</div>
+</div>
+<!-- Feedback Text -->
+<div class="flex flex-col items-center gap-2 text-center max-w-[280px]">
+<h3 class="text-neutral-900 dark:text-white text-xl font-bold leading-tight">Fetching your data...</h3>
+<p class="text-neutral-500 dark:text-text-gray text-base font-normal leading-normal">
+                        Verifying sheet permissions and parsing vocabulary list.
+                    </p>
+</div>
+<!-- Linear Progress Bar (Supplementary) -->
+<!-- Reusing ProgressBar component logic but styled to fit the loading context -->
+<div class="w-full max-w-[240px] flex flex-col gap-2">
+<div class="flex justify-between text-xs font-medium text-neutral-500 dark:text-text-gray">
+<span>Progress</span>
+<span>45%</span>
+</div>
+<div class="h-1.5 w-full rounded-full bg-neutral-200 dark:bg-border-dark overflow-hidden">
+<div class="h-full rounded-full bg-primary animate-pulse" style="width: 45%;"></div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Button (Loading State) -->
+<div class="pb-6 pt-4 mt-auto">
+<button class="relative flex w-full cursor-not-allowed items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary/50 text-white text-base font-bold leading-normal tracking-[0.015em] transition-all" disabled="">
+<!-- Spinner inside button -->
+<span class="mr-3 h-5 w-5 animate-spin rounded-full border-2 border-white/80 border-t-transparent"></span>
+<span class="truncate">Importing...</span>
+</button>
+</div>
+</div>
+<!-- Bottom spacing/safe area simulation -->
+<div class="h-5 bg-background-light dark:bg-background-dark"></div>
+</div>
+</body></html>

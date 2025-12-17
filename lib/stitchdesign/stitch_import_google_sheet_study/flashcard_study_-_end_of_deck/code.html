@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flashcard Study - End of Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Noto+Sans:wght@300..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#136dec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101822",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display overflow-x-hidden flex flex-col min-h-screen selection:bg-primary/30">
+<!-- Top App Bar -->
+<div class="flex items-center justify-between bg-background-light dark:bg-background-dark p-4 sticky top-0 z-50 border-b border-transparent dark:border-white/5">
+<div class="text-[#111418] dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">
+            Study Session
+        </h2>
+</div>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col items-center justify-start pt-6 pb-32 px-4 gap-8 w-full max-w-md mx-auto">
+<!-- Hero Section: Success Indicator -->
+<div class="flex flex-col items-center text-center gap-6 w-full">
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-blue-400 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+<div class="relative size-32 rounded-full overflow-hidden border-4 border-white dark:border-[#1a222d] shadow-xl">
+<div class="w-full h-full bg-center bg-cover" data-alt="Abstract blue gradient pattern representing success and completion" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCcvTs1fZKAiKRBwImuekLdmJ_b8MLOqHJFsXU0vwaqM3w2W8mww_v3c6gJi_ec2p9QShIRw6P6x6zEsE6pT2MtF2CPV9-eePxJz6Xj0Z2fyGY0ly1GS_2x6Z59FdY-Kienznc_-RID22pBU44zzY_wPONKxG_B-mYR5if2lfVYRfI109lIvEUMZcUWbuVI2MIgXxF66mAKqcDD9s6peKBhaGHVRlQ0qujZ0zlirbKAXmTVlGKBXTXbtwE5wedLcD6tDvJpkxYuUQBF");'>
+</div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-[1px]">
+<span class="material-symbols-outlined text-white text-[48px] font-bold drop-shadow-md">emoji_events</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<h1 class="text-[#111418] dark:text-white tracking-tight text-3xl font-bold leading-tight">
+                    Nice Work!
+                </h1>
+<p class="text-[#637588] dark:text-[#9da8b9] text-base font-normal leading-relaxed max-w-[280px] mx-auto">
+                    You've reviewed all 20 cards in the <span class="text-primary font-medium">'Advanced Vocabulary'</span> deck.
+                </p>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-3 gap-3 w-full">
+<!-- Reviewed -->
+<div class="flex flex-col gap-1 rounded-xl border border-[#dce0e5] dark:border-[#282f39] bg-white dark:bg-[#1a222d] p-3 items-center text-center shadow-sm">
+<p class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">20</p>
+<div class="flex items-center justify-center gap-1 opacity-80">
+<span class="material-symbols-outlined text-[16px] text-primary">visibility</span>
+<p class="text-[#637588] dark:text-[#9da8b9] text-xs font-medium uppercase tracking-wide">Done</p>
+</div>
+</div>
+<!-- Missed -->
+<div class="flex flex-col gap-1 rounded-xl border border-[#dce0e5] dark:border-[#282f39] bg-white dark:bg-[#1a222d] p-3 items-center text-center shadow-sm">
+<p class="text-red-500 dark:text-red-400 text-2xl font-bold leading-tight">5</p>
+<div class="flex items-center justify-center gap-1 opacity-80">
+<span class="material-symbols-outlined text-[16px] text-red-500 dark:text-red-400">close</span>
+<p class="text-[#637588] dark:text-[#9da8b9] text-xs font-medium uppercase tracking-wide">Missed</p>
+</div>
+</div>
+<!-- Mastered -->
+<div class="flex flex-col gap-1 rounded-xl border border-[#dce0e5] dark:border-[#282f39] bg-white dark:bg-[#1a222d] p-3 items-center text-center shadow-sm">
+<p class="text-green-500 dark:text-green-400 text-2xl font-bold leading-tight">15</p>
+<div class="flex items-center justify-center gap-1 opacity-80">
+<span class="material-symbols-outlined text-[16px] text-green-500 dark:text-green-400">check_circle</span>
+<p class="text-[#637588] dark:text-[#9da8b9] text-xs font-medium uppercase tracking-wide">Know</p>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-3 w-full mt-2">
+<button class="flex w-full cursor-pointer items-center justify-center rounded-xl h-14 px-6 bg-primary hover:bg-blue-600 active:scale-[0.98] transition-all text-white text-[16px] font-bold tracking-[0.015em] shadow-lg shadow-blue-500/20">
+<span class="material-symbols-outlined mr-2 text-[20px]">refresh</span>
+                Restart Deck
+            </button>
+<button class="flex w-full cursor-pointer items-center justify-center rounded-xl h-14 px-6 bg-transparent border border-[#dce0e5] dark:border-[#3b4554] hover:bg-gray-100 dark:hover:bg-[#1a222d] active:scale-[0.98] transition-all text-[#111418] dark:text-white text-[16px] font-bold tracking-[0.015em]">
+                Back to Decks
+            </button>
+</div>
+</div>
+<!-- Bottom Navigation -->
+<div class="fixed bottom-0 left-0 right-0 bg-white dark:bg-[#101822]/95 backdrop-blur-md border-t border-[#dce0e5] dark:border-[#282f39] flex justify-around items-end pb-6 pt-3 px-4 z-50 h-[88px]">
+<button class="flex flex-col items-center gap-1.5 flex-1 group">
+<span class="material-symbols-outlined text-[#637588] dark:text-[#9da8b9] group-hover:text-primary transition-colors text-[26px]">style</span>
+<span class="text-[10px] font-semibold text-[#637588] dark:text-[#9da8b9] group-hover:text-primary tracking-wide">DECKS</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 flex-1 group -mt-8">
+<div class="bg-primary size-12 rounded-full flex items-center justify-center shadow-lg shadow-primary/40 group-hover:scale-110 transition-transform duration-200">
+<span class="material-symbols-outlined text-white text-[28px]">add</span>
+</div>
+<span class="text-[10px] font-semibold text-[#637588] dark:text-[#9da8b9] group-hover:text-primary tracking-wide">IMPORT</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 flex-1 group">
+<span class="material-symbols-outlined text-[#637588] dark:text-[#9da8b9] group-hover:text-primary transition-colors text-[26px]">person</span>
+<span class="text-[10px] font-semibold text-[#637588] dark:text-[#9da8b9] group-hover:text-primary tracking-wide">PROFILE</span>
+</button>
+</div>
+</body></html>

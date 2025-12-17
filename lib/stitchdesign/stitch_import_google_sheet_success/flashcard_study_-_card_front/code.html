@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flashcard Study - Card Front</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#136dec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101822",
+                        "card-dark": "#1c2027",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom utilities for subtle interactions */
+        .tap-highlight {
+            transition: background-color 0.2s ease;
+        }
+        .tap-highlight:active {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white overflow-x-hidden antialiased selection:bg-primary selection:text-white">
+<div class="relative flex h-screen w-full flex-col">
+<!-- Header Section: TopAppBar + ProgressBar -->
+<header class="flex flex-col w-full z-10 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm">
+<div class="flex items-center justify-between p-4 pb-2">
+<!-- Close Button -->
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-white/10 text-slate-900 dark:text-white transition-colors">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+<!-- Title & Progress Text -->
+<div class="flex flex-col items-center">
+<h2 class="text-slate-900 dark:text-white text-base font-bold leading-tight tracking-tight">Business English</h2>
+<span class="text-slate-500 dark:text-slate-400 text-xs font-medium mt-0.5">Card 12 of 50</span>
+</div>
+<!-- More Options -->
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-white/10 text-slate-900 dark:text-white transition-colors">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</div>
+<!-- Progress Bar -->
+<div class="px-4 pb-2 w-full">
+<div class="h-1.5 w-full rounded-full bg-slate-200 dark:bg-[#3b4554] overflow-hidden">
+<div class="h-full rounded-full bg-primary transition-all duration-300 ease-out" style="width: 24%;"></div>
+</div>
+</div>
+</header>
+<!-- Main Content: Flashcard Area -->
+<main class="flex-1 flex items-center justify-center relative w-full px-4 py-6 overflow-hidden">
+<!-- Left Swipe Indicator -->
+<button class="absolute left-2 top-1/2 -translate-y-1/2 p-2 text-slate-300/20 hover:text-slate-300/50 transition-colors hidden sm:flex">
+<span class="material-symbols-outlined text-[48px]">chevron_left</span>
+</button>
+<!-- The Flashcard -->
+<!-- Using a container query wrapper just in case, though sizing is fixed mostly -->
+<div class="w-full max-w-sm aspect-[3/4] max-h-[560px] perspective-1000 group cursor-pointer">
+<div class="relative w-full h-full duration-500 preserve-3d">
+<!-- Card Front -->
+<div class="absolute w-full h-full bg-white dark:bg-card-dark rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.5)] border border-slate-100 dark:border-white/5 flex flex-col items-center justify-center p-8 tap-highlight select-none">
+<!-- Audio Button (Top Right) -->
+<button aria-label="Play pronunciation" class="absolute top-6 right-6 size-12 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 text-primary hover:bg-primary hover:text-white transition-all duration-200 shadow-sm z-20">
+<span class="material-symbols-outlined text-[24px] filled">volume_up</span>
+</button>
+<!-- Card Content -->
+<div class="flex-1 flex flex-col items-center justify-center w-full gap-4">
+<!-- Image placeholder if card has image (Optional per design, but good to have structure) -->
+<!-- <div class="w-32 h-32 rounded-xl bg-slate-800 mb-4 bg-cover bg-center" style="background-image: url('...');"></div> -->
+<h1 class="text-slate-900 dark:text-white text-4xl md:text-5xl font-bold leading-tight tracking-tight text-center break-words w-full">
+                                Procrastination
+                            </h1>
+<!-- Part of Speech Tag -->
+<span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-sm font-medium italic">
+                                noun
+                            </span>
+</div>
+<!-- Tap Hint -->
+<div class="absolute bottom-8 left-0 w-full flex flex-col items-center gap-2 opacity-80">
+<p class="text-primary text-sm font-medium tracking-wide uppercase flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">touch_app</span>
+                                Tap to flip
+                            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Swipe Indicator -->
+<button class="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-slate-300/20 hover:text-slate-300/50 transition-colors hidden sm:flex">
+<span class="material-symbols-outlined text-[48px]">chevron_right</span>
+</button>
+</main>
+<!-- Bottom Toolbar (Actions) -->
+<footer class="w-full pb-8 pt-2 px-6">
+<div class="max-w-sm mx-auto flex items-center justify-between">
+<button class="flex flex-col items-center gap-1 group/btn p-2 rounded-lg hover:bg-white/5 transition-colors">
+<div class="size-10 flex items-center justify-center rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 group-hover/btn:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</div>
+<span class="text-[10px] font-medium text-slate-500 group-hover/btn:text-slate-300">Edit</span>
+</button>
+<button class="flex flex-col items-center gap-1 group/btn p-2 rounded-lg hover:bg-white/5 transition-colors">
+<div class="size-10 flex items-center justify-center rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 group-hover/btn:text-red-400 transition-colors">
+<span class="material-symbols-outlined text-[20px]">flag</span>
+</div>
+<span class="text-[10px] font-medium text-slate-500 group-hover/btn:text-slate-300">Flag</span>
+</button>
+</div>
+</footer>
+</div>
+<!-- Error State / Empty State (Hidden by default, ready for conditional rendering) -->
+<!-- 
+    <div class="fixed inset-0 z-50 flex items-center justify-center bg-background-dark p-4 hidden">
+        <div class="flex flex-col items-center gap-6 rounded-2xl border-2 border-dashed border-[#3b4554] bg-card-dark px-8 py-12 max-w-sm w-full text-center">
+            <div class="size-16 rounded-full bg-red-500/10 flex items-center justify-center mb-2">
+                 <span class="material-symbols-outlined text-red-500 text-[32px]">sync_problem</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <p class="text-white text-xl font-bold">Failed to load card</p>
+                <p class="text-slate-400 text-sm">There was an issue syncing with Google Sheets. Please check your connection.</p>
+            </div>
+            <button class="mt-2 w-full py-3 px-4 bg-primary hover:bg-primary/90 rounded-xl text-white font-bold transition-colors">
+                Retry Sync
+            </button>
+        </div>
+    </div>
+    -->
+</body></html>
