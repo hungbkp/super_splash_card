@@ -173,6 +173,8 @@ Map<String, int> _buildColumnMap(List<String> headers) {
     } else if (normalized == 'definition' || normalized == 'defination') {
       // Support both correct and common misspelling
       columnMap['definition'] = i;
+    } else if (normalized == 'deck') {
+      columnMap['deck'] = i;
     } else if (normalized == 'example') {
       columnMap['example'] = i;
     } else if (normalized == 'ipa') {
@@ -222,6 +224,7 @@ FlashCard _parseRowToFlashCard(
   final ipa = _getCellValue(row, columnMap['ipa']).trim();
   final note = _getCellValue(row, columnMap['note']).trim();
   final updatedAt = _getCellValue(row, columnMap['updatedAt']).trim();
+  final deck = _getCellValue(row, columnMap['deck']).trim();
 
   return FlashCard(
     id: id.isEmpty ? null : id,
@@ -232,6 +235,7 @@ FlashCard _parseRowToFlashCard(
     ipa: ipa.isEmpty ? null : ipa,
     note: note.isEmpty ? null : note,
     updatedAt: updatedAt.isEmpty ? null : updatedAt,
+    deck: deck.isEmpty ? null : deck,
   );
 }
 

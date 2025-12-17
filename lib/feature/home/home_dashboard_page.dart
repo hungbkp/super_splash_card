@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/router/app_router.dart';
+import '../../core/di/app_di.dart';
+import '../../data/model/deck_stats.dart';
 
 class HomeDashboardPage extends StatelessWidget {
   const HomeDashboardPage({super.key});
@@ -9,6 +11,7 @@ class HomeDashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final DeckStats stats = flashCardRepository.getDeckStats();
 
     final backgroundColor = isDark
         ? const Color(0xFF101922)
@@ -81,7 +84,7 @@ class HomeDashboardPage extends StatelessWidget {
                               child: _StatCard(
                                 title: 'Decks',
                                 icon: Icons.style,
-                                value: '12',
+                                value: stats.deckCount.toString(),
                                 primaryColor: primaryColor,
                                 surfaceColor: surfaceColor,
                                 borderColor: borderColor,
@@ -93,7 +96,7 @@ class HomeDashboardPage extends StatelessWidget {
                               child: _StatCard(
                                 title: 'Cards',
                                 icon: Icons.filter_none,
-                                value: '340',
+                                value: stats.cardCount.toString(),
                                 primaryColor: primaryColor,
                                 surfaceColor: surfaceColor,
                                 borderColor: borderColor,

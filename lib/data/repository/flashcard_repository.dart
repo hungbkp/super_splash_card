@@ -2,6 +2,7 @@ import '../../core/network/sheet_client.dart';
 import '../../core/utils/validators.dart';
 import '../../core/utils/csv_parser.dart';
 import '../model/flashcard.dart';
+import '../model/deck_stats.dart';
 
 /// Repository for managing flashcard data operations
 ///
@@ -9,6 +10,7 @@ import '../model/flashcard.dart';
 /// high-level flashcard import functionality.
 class FlashCardRepository {
   final SheetCsvClient _csvClient;
+  List<FlashCard> _lastImportedFlashCards = const [];
 
   /// Creates a [FlashCardRepository] with the given CSV client
   FlashCardRepository(this._csvClient);
@@ -43,9 +45,40 @@ class FlashCardRepository {
     // Step 4: Parse CSV to flashcards
     final parseResult = parseCsvToFlashCards(csvContent);
 
+    // Cache last imported flashcards in memory for browsing/study flows
+    _lastImportedFlashCards = List.unmodifiable(parseResult.flashcards);
+
     // Return success with parsed flashcards
     // Note: skipped rows are tracked in parseResult but not exposed in the Result
     // This follows the constraint that we only return Result<List<FlashCard>>
     return Success(parseResult.flashcards);
+  }
+
+  /// Returns the last successfully imported flashcards.
+  ///
+  /// This is an in-memory cache only; it is cleared when the app restarts.
+  Result<List<FlashCard>> getLastImportedFlashCards() {
+    return Success(List.unmodifiable(_lastImportedFlashCards));
+  }
+
+  /// Computes deck and card statistics from the last imported flashcards.
+  DeckStats getDeckStats() {
+    if (_lastImportedFlashCards.isEmpty) {
+      return const DeckStats(deckCount: 0, cardCount: 0);
+    }
+
+    final deckNames = <String>{};
+
+    for (final card in _lastImportedFlashCards) {
+      final deckName = card.deck?.trim();
+      if (deckName != null && deckName.isNotEmpty) {
+        deckNames.add(deckName);
+      }
+    }
+
+    return DeckStats(
+      deckCount: deckNames.length,
+      cardCount: _lastImportedFlashCards.length,
+    );
   }
 }

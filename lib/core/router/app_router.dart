@@ -3,12 +3,14 @@ import 'package:go_router/go_router.dart';
 
 import '../../feature/home/home_dashboard_page.dart';
 import '../../feature/import_sheet/import_page.dart';
+import '../../feature/browse/browse_page.dart';
 
 /// Route names used in the app
 abstract final class AppRoutes {
   static const String shell = '/';
   static const String home = '/';
   static const String importSheet = '/import';
+  static const String browse = '/browse';
 }
 
 /// Global GoRouter instance configured with a ShellRoute for shared layout.
@@ -27,12 +29,10 @@ final GoRouter appRouter = GoRouter(
             icon: Icons.home_outlined,
             route: AppRoutes.home,
           ),
-          // Browse and Settings are placeholders for future features.
           _NavItem(
             label: 'Browse',
             icon: Icons.search,
-            route: '/browse',
-            enabled: false,
+            route: AppRoutes.browse,
           ),
           _NavItem(
             label: 'Settings',
@@ -94,6 +94,12 @@ final GoRouter appRouter = GoRouter(
           name: 'home',
           pageBuilder: (context, state) =>
               const NoTransitionPage(child: HomeDashboardPage()),
+        ),
+        GoRoute(
+          path: AppRoutes.browse,
+          name: 'browse',
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: BrowsePage()),
         ),
         GoRoute(
           path: AppRoutes.importSheet,

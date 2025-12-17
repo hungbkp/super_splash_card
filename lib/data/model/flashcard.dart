@@ -11,6 +11,7 @@ class FlashCard {
   final String? example;
   final String? ipa;
   final String? note;
+  final String? deck;
 
   /// Raw updated_at value from Google Sheets (unparsed)
   final String? updatedAt;
@@ -23,6 +24,7 @@ class FlashCard {
     this.example,
     this.ipa,
     this.note,
+    this.deck,
     this.updatedAt,
   })  : assert(word.trim().isNotEmpty, 'word cannot be empty'),
         assert(meaning.trim().isNotEmpty, 'meaning cannot be empty');
@@ -39,6 +41,7 @@ class FlashCard {
           example == other.example &&
           ipa == other.ipa &&
           note == other.note &&
+          deck == other.deck &&
           updatedAt == other.updatedAt;
 
   @override
@@ -50,10 +53,11 @@ class FlashCard {
       example.hashCode ^
       ipa.hashCode ^
       note.hashCode ^
+      deck.hashCode ^
       updatedAt.hashCode;
 
   @override
   String toString() =>
       'FlashCard(id: $id, word: $word, meaning: $meaning, definition: $definition, '
-      'example: $example, ipa: $ipa, note: $note, updatedAt: $updatedAt)';
+      'example: $example, ipa: $ipa, note: $note, deck: $deck, updatedAt: $updatedAt)';
 }

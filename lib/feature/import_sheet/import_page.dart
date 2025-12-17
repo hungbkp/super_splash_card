@@ -38,8 +38,9 @@ class _ImportSheetPageState extends State<ImportSheetPage> {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final backgroundColor =
-        isDark ? const Color(0xFF101822) : const Color(0xFFF6F7F8);
+    final backgroundColor = isDark
+        ? const Color(0xFF101822)
+        : const Color(0xFFF6F7F8);
     const primaryColor = Color(0xFF136DEC);
 
     return Scaffold(
@@ -96,9 +97,9 @@ class _ImportSheetPageState extends State<ImportSheetPage> {
             child: Text(
               title,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
           ),
           const SizedBox(width: 48),
@@ -127,8 +128,10 @@ class _ImportSheetPageState extends State<ImportSheetPage> {
             ),
             Expanded(
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 16,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -136,28 +139,25 @@ class _ImportSheetPageState extends State<ImportSheetPage> {
                     Text(
                       'Import from\nGoogle Sheets',
                       textAlign: TextAlign.center,
-                      style:
-                          Theme.of(context).textTheme.headlineSmall?.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
+                      style: Theme.of(context).textTheme.headlineSmall
+                          ?.copyWith(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       'Enter a public Google Sheet URL to instantly generate flashcards.',
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: isDark
-                                ? const Color(0xFF9DA8B9)
-                                : const Color(0xFF64748B),
-                          ),
+                        color: isDark
+                            ? const Color(0xFF9DA8B9)
+                            : const Color(0xFF64748B),
+                      ),
                     ),
                     const SizedBox(height: 24),
                     TextField(
                       controller: _controller,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.link),
-                        hintText:
-                            'https://docs.google.com/spreadsheets/...',
+                        hintText: 'https://docs.google.com/spreadsheets/...',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),
@@ -190,12 +190,12 @@ class _ImportSheetPageState extends State<ImportSheetPage> {
                       children: [
                         Text(
                           'Need help formatting?',
-                          style:
-                              Theme.of(context).textTheme.bodySmall?.copyWith(
-                                    color: isDark
-                                        ? const Color(0xFF9DA8B9)
-                                        : const Color(0xFF64748B),
-                                  ),
+                          style: Theme.of(context).textTheme.bodySmall
+                              ?.copyWith(
+                                color: isDark
+                                    ? const Color(0xFF9DA8B9)
+                                    : const Color(0xFF64748B),
+                              ),
                         ),
                         const SizedBox(height: 8),
                         TextButton.icon(
@@ -233,8 +233,10 @@ class _ImportSheetPageState extends State<ImportSheetPage> {
             _buildTopBar(context, title: 'Import Deck', onBack: null),
             Expanded(
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 16,
+                ),
                 child: Column(
                   children: [
                     const SizedBox(height: 8),
@@ -289,21 +291,19 @@ class _ImportSheetPageState extends State<ImportSheetPage> {
                           const SizedBox(height: 16),
                           Text(
                             'Fetching your data...',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium
+                            style: Theme.of(context).textTheme.titleMedium
                                 ?.copyWith(fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 8),
                           Text(
                             'Verifying sheet permissions and parsing vocabulary list.',
                             textAlign: TextAlign.center,
-                            style:
-                                Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                      color: isDark
-                                          ? const Color(0xFF9DA8B9)
-                                          : const Color(0xFF64748B),
-                                    ),
+                            style: Theme.of(context).textTheme.bodyMedium
+                                ?.copyWith(
+                                  color: isDark
+                                      ? const Color(0xFF9DA8B9)
+                                      : const Color(0xFF64748B),
+                                ),
                           ),
                           const SizedBox(height: 24),
                           Column(
@@ -346,8 +346,9 @@ class _ImportSheetPageState extends State<ImportSheetPage> {
                                   backgroundColor: isDark
                                       ? const Color(0xFF3B4554)
                                       : const Color(0xFFE5E7EB),
-                                  valueColor:
-                                      AlwaysStoppedAnimation<Color>(primaryColor),
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    primaryColor,
+                                  ),
                                 ),
                               ),
                             ],
@@ -366,15 +367,17 @@ class _ImportSheetPageState extends State<ImportSheetPage> {
                           height: 18,
                           child: CircularProgressIndicator(
                             strokeWidth: 2,
-                            valueColor:
-                                const AlwaysStoppedAnimation<Color>(Colors.white),
+                            valueColor: const AlwaysStoppedAnimation<Color>(
+                              Colors.white,
+                            ),
                           ),
                         ),
                         label: const Text('Importing...'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: primaryColor.withOpacity(0.6),
-                          disabledBackgroundColor:
-                              primaryColor.withOpacity(0.6),
+                          disabledBackgroundColor: primaryColor.withOpacity(
+                            0.6,
+                          ),
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
@@ -413,8 +416,10 @@ class _ImportSheetPageState extends State<ImportSheetPage> {
             ),
             Expanded(
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 16,
+                ),
                 child: Column(
                   children: [
                     const SizedBox(height: 24),
@@ -434,20 +439,19 @@ class _ImportSheetPageState extends State<ImportSheetPage> {
                     const SizedBox(height: 16),
                     Text(
                       'Import Successful!',
-                      style:
-                          Theme.of(context).textTheme.titleLarge?.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       'Your Google Sheet has been successfully synced and converted into flashcards.',
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: isDark
-                                ? const Color(0xFF93A2B7)
-                                : const Color(0xFF637588),
-                          ),
+                        color: isDark
+                            ? const Color(0xFF93A2B7)
+                            : const Color(0xFF637588),
+                      ),
                     ),
                     const SizedBox(height: 24),
                     Row(
@@ -540,8 +544,10 @@ class _ImportSheetPageState extends State<ImportSheetPage> {
             ),
             Expanded(
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 16,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -574,9 +580,7 @@ class _ImportSheetPageState extends State<ImportSheetPage> {
                               children: [
                                 Text(
                                   'Import Failed',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium
+                                  style: Theme.of(context).textTheme.bodyMedium
                                       ?.copyWith(
                                         fontWeight: FontWeight.w600,
                                         color: isDark
@@ -587,15 +591,15 @@ class _ImportSheetPageState extends State<ImportSheetPage> {
                                 const SizedBox(height: 4),
                                 Text(
                                   errorMessage,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall
+                                  style: Theme.of(context).textTheme.bodySmall
                                       ?.copyWith(
                                         color: isDark
-                                            ? const Color(0xFFFCA5A5)
-                                                .withOpacity(0.8)
-                                            : const Color(0xFFDC2626)
-                                                .withOpacity(0.9),
+                                            ? const Color(
+                                                0xFFFCA5A5,
+                                              ).withOpacity(0.8)
+                                            : const Color(
+                                                0xFFDC2626,
+                                              ).withOpacity(0.9),
                                       ),
                                 ),
                               ],
@@ -608,8 +612,8 @@ class _ImportSheetPageState extends State<ImportSheetPage> {
                     Text(
                       'Google Sheet Link',
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            fontWeight: FontWeight.w600,
-                          ),
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                     const SizedBox(height: 8),
                     TextField(
@@ -646,10 +650,10 @@ class _ImportSheetPageState extends State<ImportSheetPage> {
                     Text(
                       "Make sure your sheet is set to 'Anyone with the link can view'.",
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: isDark
-                                ? const Color(0xFF9CA3AF)
-                                : const Color(0xFF6B7280),
-                          ),
+                        color: isDark
+                            ? const Color(0xFF9CA3AF)
+                            : const Color(0xFF6B7280),
+                      ),
                     ),
                     const Spacer(),
                     SizedBox(
@@ -732,11 +736,11 @@ class _SuccessStatCard extends StatelessWidget {
               Text(
                 title,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: isDark
-                          ? const Color(0xFF93A2B7)
-                          : const Color(0xFF637588),
-                      fontWeight: FontWeight.w500,
-                    ),
+                  color: isDark
+                      ? const Color(0xFF93A2B7)
+                      : const Color(0xFF637588),
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ],
           ),
@@ -744,18 +748,16 @@ class _SuccessStatCard extends StatelessWidget {
           Text(
             value,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: title == 'Cards Added'
-                      ? primaryColor
-                      : isDark
-                          ? Colors.white
-                          : const Color(0xFF111418),
-                ),
+              fontWeight: FontWeight.bold,
+              color: title == 'Cards Added'
+                  ? primaryColor
+                  : isDark
+                  ? Colors.white
+                  : const Color(0xFF111418),
+            ),
           ),
         ],
       ),
     );
   }
 }
-
-
